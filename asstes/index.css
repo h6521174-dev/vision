@@ -1,0 +1,184 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-display: 'Sora', sans-serif;
+  --font-sans: 'Hanken Grotesk', sans-serif;
+  --font-label: 'Space Grotesk', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --color-void-base: #070913;
+  --color-void-surface: #0B0F19;
+  --color-void-subtle: #141A29;
+  --color-surface: #11131d;
+  --color-surface-dim: #11131d;
+  --color-surface-bright: #373944;
+  --color-surface-container-lowest: #0b0e18;
+  --color-surface-container-low: #191b26;
+  --color-surface-container: #1d1f2a;
+  --color-surface-container-high: #272935;
+  --color-surface-container-highest: #323440;
+
+  --color-primary: #bcc3ff;
+  --color-primary-container: #2f4bff;
+  --color-secondary: #dbb8ff;
+  --color-secondary-container: #6807ba;
+  --color-tertiary: #00dbe9;
+  --color-tertiary-container: #007077;
+
+  --color-chroma-indigo: #2F4BFF;
+  --color-chroma-violet: #9055FF;
+  --color-chroma-cyan: #00F0FF;
+
+  --color-text-primary: #F4F2EC;
+  --color-text-secondary: #9EABC0;
+  --color-text-muted: #56627A;
+}
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  body {
+    font-family: 'Hanken Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: #070913;
+    color: #F4F2EC;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, .font-sora {
+    font-family: 'Sora', sans-serif;
+  }
+}
+
+/* Z-0: Abyss Layer */
+.glass-tier-z0 {
+  background-color: #070913;
+  background-image:
+    radial-gradient(circle at 18% 18%, rgba(47, 75, 255, 0.16) 0%, transparent 48%),
+    radial-gradient(circle at 82% 24%, rgba(121, 40, 202, 0.14) 0%, transparent 52%),
+    radial-gradient(circle at 50% 85%, rgba(0, 240, 255, 0.08) 0%, transparent 55%);
+}
+
+/* Z-1: Sub-Glass Tier */
+.glass-tier-z1 {
+  background: rgba(11, 15, 25, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Z-2: Elevated Liquid Glass */
+.glass-tier-z2 {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.01) 100%);
+  backdrop-filter: blur(24px) saturate(160%);
+  -webkit-backdrop-filter: blur(24px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: inset 0 1px 1px 0 rgba(255, 255, 255, 0.15);
+  transition: transform 180ms cubic-bezier(0.16, 1, 0.3, 1), border-color 180ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 180ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-tier-z2:hover {
+  border-color: rgba(0, 240, 255, 0.24);
+  box-shadow:
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.24),
+    0 12px 32px -12px rgba(47, 75, 255, 0.25);
+}
+
+/* Z-3: Active & Floating Tier */
+.glass-tier-z3 {
+  background: linear-gradient(135deg, rgba(19, 25, 42, 0.82) 0%, rgba(11, 15, 25, 0.76) 100%);
+  backdrop-filter: blur(30px) saturate(180%);
+  -webkit-backdrop-filter: blur(30px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow:
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.2),
+    0 20px 50px rgba(0, 0, 0, 0.5),
+    0 0 30px -10px rgba(47, 75, 255, 0.35);
+}
+
+/* Primary Fluid Button */
+.btn-fluid-primary {
+  font-family: 'Space Grotesk', sans-serif;
+  background: linear-gradient(135deg, #2F4BFF 0%, #7928CA 100%);
+  color: #F4F2EC;
+  border-radius: 9999px;
+  box-shadow:
+    0 0 20px rgba(47, 75, 255, 0.45),
+    inset 0 1px 1px rgba(255, 255, 255, 0.3);
+  transition: transform 160ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 160ms cubic-bezier(0.16, 1, 0.3, 1), filter 160ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-fluid-primary:hover {
+  filter: brightness(1.12);
+  box-shadow:
+    0 0 26px rgba(47, 75, 255, 0.65),
+    0 0 12px rgba(0, 240, 255, 0.35),
+    inset 0 1px 1px rgba(255, 255, 255, 0.45);
+}
+
+.btn-fluid-primary:active {
+  transform: scale(0.98);
+}
+
+/* Glass Specular Button */
+.btn-glass-specular {
+  font-family: 'Space Grotesk', sans-serif;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  color: #F4F2EC;
+  border-radius: 9999px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  transition: transform 160ms cubic-bezier(0.16, 1, 0.3, 1), border-color 160ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 160ms cubic-bezier(0.16, 1, 0.3, 1), background-color 160ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-glass-specular:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(0, 240, 255, 0.45);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    0 0 16px rgba(0, 240, 255, 0.22);
+}
+
+/* Dark Obsidian Input Well */
+.input-obsidian-well {
+  background: rgba(7, 9, 19, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.55);
+  color: #F4F2EC;
+  transition: border-color 160ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 160ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.input-obsidian-well:focus {
+  outline: none;
+  border-color: #2F4BFF;
+  box-shadow:
+    inset 0 2px 6px rgba(0, 0, 0, 0.55),
+    0 0 16px rgba(47, 75, 255, 0.35);
+}
+
+/* Custom Range Slider */
+input[type="range"].liquid-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  background: rgba(7, 9, 19, 0.85);
+  height: 6px;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+input[type="range"].liquid-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 9999px;
+  background: #00F0FF;
+  border: 2px solid #F4F2EC;
+  box-shadow: 0 0 12px rgba(0, 240, 255, 0.65);
+  cursor: pointer;
+}
+
